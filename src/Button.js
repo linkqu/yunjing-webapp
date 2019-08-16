@@ -1,3 +1,34 @@
+/*
+ * Copyright (c) 2009, Linkqu and/or its affiliates. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   - Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *   - Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *
+ *   - Neither the name of Linkqu or the names of its
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 /**
  * Button
  *
@@ -17,9 +48,12 @@ class Button extends HTMLElement {
         // button.textContent = this.getAttribute('data-text');
         // shadowRoot.appendChild(button);
 
+        const icon = this.getAttribute("icon");
+
         // // Could also use appendChild().
-        shadowRoot.innerHTML = `<button>
-                <widget-icon icon="home"></widget-icon>
+        shadowRoot.innerHTML = `
+            <button>
+                ${icon? `<widget-icon icon="${icon}"></widget-icon>`: ''}
                 ${this.textContent}
             </button>`;
         // header.shadowRoot === shadowRoot
@@ -33,19 +67,20 @@ class Button extends HTMLElement {
             button { 
                 cursor: pointer;
                 display: inline-block;
-                min-height: 1em;
+                min-height: 2rem;
                 outline: 0;
-                border: none;
+                border: 0.0625rem solid transparent;
                 vertical-align: baseline;
                 background: #e0e1e2 none;
                 color: rgba(0,0,0,.6);
                 font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
                 margin: 0;
-                padding: 0.5rem 1rem;
+                padding: 0 0.875rem;
                 text-transform: none;
                 text-shadow: none;
                 font-weight: 700;
-                line-height: 1em;
+                font-size: 0.875rem;
+                line-height: 0.875rem;
                 font-style: normal;
                 text-align: center;
                 text-decoration: none;
