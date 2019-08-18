@@ -29,14 +29,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 /**
- * Button
+ * Loader
  *
  * @author hongquanli <hongquanli@qq.com>
  * @version 1.0 2018-06-29 11:04
  */
-class Button extends HTMLElement {
+class Loader extends HTMLElement {
 
     constructor() {
         super();
@@ -49,17 +48,11 @@ class Button extends HTMLElement {
         // button.textContent = this.getAttribute('data-text');
         // shadowRoot.appendChild(button);
 
-        const leftIcon = this.getAttribute("left-icon");
-        const rightIcon = this.getAttribute("right-icon");
+        const indicatorType = this.getAttribute('indicator-type');
 
         // // Could also use appendChild().
         shadowRoot.innerHTML = `
-            <button>
-                ${leftIcon? `<widget-icon icon="${leftIcon}"></widget-icon>`: ''}
-                ${this.textContent}
-                <widget-loader indicator-type="expander"></widget-loader>
-                ${rightIcon ? `<widget-icon icon="${rightIcon}"></widget-icon>`: ''}
-                </button>`;
+            <div class="loading-indicator-${indicatorType}"></div>`;
         // header.shadowRoot === shadowRoot
         // shadowRoot.host === header
 
@@ -68,40 +61,74 @@ class Button extends HTMLElement {
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
             
-            button { 
-                cursor: pointer;
-                display: inline-block;
-                min-height: 2rem;
-                outline: 0;
-                border: 0.0625rem solid transparent;
-                vertical-align: baseline;
-                background: #e0e1e2 none;
-                color: rgba(0,0,0,.6);
-                font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-                margin: 0;
-                padding: 0 0.875rem;
-                text-transform: none;
-                text-shadow: none;
-                font-weight: 700;
-                font-size: 0.875rem;
-                line-height: 0.875rem;
-                font-style: normal;
-                text-align: center;
-                text-decoration: none;
-                border-radius: 0.25rem;
-                box-shadow: 0 0 0 0.125rem transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
-                user-select: none;
-                transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
-                will-change: auto;
+            @-webkit-keyframes rotating {
+                0% {
+                    -webkit-transform: rotate(0);
+                    transform: rotate(0)
+                }
+            
+                to {
+                    -webkit-transform: rotate(1turn);
+                    transform: rotate(1turn)
+                }
+            }
+
+            @keyframes rotating {
+                0% {
+                    -webkit-transform: rotate(0);
+                    transform: rotate(0)
+                }
+            
+                to {
+                    -webkit-transform: rotate(1turn);
+                    transform: rotate(1turn)
+                }
             }
             
-            button:hover {
-                background-color: #cacbcd;
-                box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(34,36,38,.15) inset;
-                color: rgba(0,0,0,.8)
+            @-webkit-keyframes growing {
+                0% {
+                transform: scale(0);
+              }
+              50% {
+                opacity: 1;
+              }
+            }
+            
+            @keyframes growing {
+              0% {
+                transform: scale(0);
+              }
+              50% {
+                opacity: 1;
+              }
+            }
+            
+            :host {
+                display: inline-block;
+            }
+            .loading-indicator-spinner {
+                display: inline-block;
+                animation: rotating .7s linear infinite;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                border: 0.125rem solid transparent;
+                border-color: rgba(44,62,80,.1);
+                border-right-color: #2c3e50;
+            }
+            
+            .loading-indicator-expander {
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                vertical-align: text-bottom;
+                background-color: currentColor;
+                border-radius: 50%;
+                opacity: 0;
+                animation: growing .75s linear infinite;
             }`;
     }
 }
 
 // Define the new element
-window.customElements.define('widget-button', Button);
+window.customElements.define('widget-loader', Loader);

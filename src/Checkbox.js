@@ -61,6 +61,22 @@ class Checkbox extends HTMLElement {
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
             
+            /* Checkmark */
+            label:after {
+              font-family: 'Checkbox';
+            }
+            
+            /* Checked */
+            input:checked ~ label:after {
+              content: '\\e800';
+            }
+            
+            /* Indeterminate */
+            input:indeterminate ~ label:after {
+              font-size: 1rem;
+              content: '\\e801';
+            }
+            
             :host {
                 position: relative;
                 display: inline-block;

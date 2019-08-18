@@ -52,8 +52,31 @@ class Table extends HTMLElement {
 
         // // Could also use appendChild().
         shadowRoot.innerHTML = `
-            <table>
-                
+            <table class="ui very basic table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Approved</td>
+                  <td>None</td>
+                </tr>
+                <tr>
+                  <td>Jamie</td>
+                  <td>Approved</td>
+                  <td>Requires call</td>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>Denied</td>
+                  <td>None</td>
+                </tr>
+              </tbody>
             </table>`;
         // header.shadowRoot === shadowRoot
         // shadowRoot.host === header
@@ -62,6 +85,50 @@ class Table extends HTMLElement {
         style.textContent = `
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
+            
+            table {
+                width: 100%;
+                background: #fff;
+                margin: 1em 0;
+                /* border: 1px solid rgba(34,36,38,.15); */
+                box-shadow: none;
+                border-radius: .25rem;
+                text-align: left;
+                vertical-align: middle;
+                color: rgba(0,0,0,.87);
+                border-collapse: separate;
+                border-spacing: 0;
+                font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            }
+            table:last-child {
+                margin-bottom: 0;
+            }
+            
+            table > thead > tr > th {
+                cursor: auto;
+                background: #f9fafb;
+                text-align: inherit;
+                color: rgba(0,0,0,.87);
+                padding: 0.5rem 0.5rem;
+                vertical-align: inherit;
+                font-style: none;
+                font-weight: 700;
+                text-transform: none;
+                border-bottom: 1px solid rgba(34,36,38,.1);
+                border-left: none;
+                transition: background .1s ease,color .1s ease;
+            }
+            table > tbody > tr {
+                border-bottom: 1px solid rgba(0,0,0,.1);
+            }
+            table > tbody > tr > td {
+                padding: 0.5rem 0.5rem;
+                text-align: inherit;
+                border-top: 1px solid rgba(34,36,38,.1);
+            }
+            table > tbody > tr:first-child > td {
+                border-top: none;
+            }
             `;
     }
 }
