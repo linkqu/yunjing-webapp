@@ -51,6 +51,7 @@ class FlexboxLayout extends HTMLElement {
 
         // // Could also use appendChild().
         shadowRoot.innerHTML = this.innerHTML;
+        // shadowRoot.innerHTML = this.textContent;
         // shadowRoot.innerHTML = `
         //     <div class="box">
         //        <div class="box-item"></div>
