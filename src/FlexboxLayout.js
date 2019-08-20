@@ -50,13 +50,11 @@ class FlexboxLayout extends HTMLElement {
         // shadowRoot.appendChild(button);
 
         // // Could also use appendChild().
-        shadowRoot.innerHTML = this.textContent;
-        /*
-        shadowRoot.innerHTML = `
-            <div class="box">
-               <div class="box-item"></div>
-            </div>`;
-        */
+        shadowRoot.innerHTML = this.innerHTML;
+        // shadowRoot.innerHTML = `
+        //     <div class="box">
+        //        <div class="box-item"></div>
+        //     </div>`;
         // header.shadowRoot === shadowRoot
         // shadowRoot.host === header
 
@@ -70,8 +68,8 @@ class FlexboxLayout extends HTMLElement {
                 align-items: center;
             }
             
-            :host-context(*) {
-                margin: 1rem;
+            * {
+                margin: 0 0.5rem;
                 text-align: center;
             }`;
     }

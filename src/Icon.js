@@ -72,6 +72,9 @@ class Icon extends HTMLElement {
                 vertical-align: -0.15rem;
                 fill: currentColor;
                 overflow: hidden;
+            }
+            .icon:hover {
+                fill: #007bff;
             }`;
     }
 }

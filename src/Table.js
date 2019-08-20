@@ -121,6 +121,9 @@ class Table extends HTMLElement {
             table > tbody > tr {
                 border-bottom: 1px solid rgba(0,0,0,.1);
             }
+             table > tbody > tr:hover {
+                background: #fcfcfc;
+            }
             table > tbody > tr > td {
                 padding: 0.5rem 0.5rem;
                 text-align: inherit;
