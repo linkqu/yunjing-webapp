@@ -32,6 +32,7 @@
 
 /**
  * FlexboxLayout
+ * vw vh
  *
  * @author hongquanli <hongquanli@qq.com>
  * @version 1.0 2018-06-29 11:04
@@ -60,10 +61,16 @@ class FlexboxLayout extends HTMLElement {
         // shadowRoot.host === header
 
         const width = this.getAttribute("width");
+        const height = this.getAttribute("height");
         const direction = this.getAttribute('direction');
         const align = this.getAttribute('align');
+        const borderTop = this.getAttribute('border-top');
+        const borderBottom = this.getAttribute('border-bottom');
+        const borderRight = this.getAttribute('border-right');
+
         const itemPadding = this.getAttribute('item-padding');
         const itemMargin = this.getAttribute('item-margin');
+
         const firstItemPadding = this.getAttribute('first-item-padding');
         const firstItemMargin = this.getAttribute('first-item-margin');
 
@@ -74,12 +81,15 @@ class FlexboxLayout extends HTMLElement {
             
             :host { 
                 ${width ? `width: ${width};` : ''}
+                ${height ? `height: ${height};` : ''}
                 display: flex;
                 /* align-items: flex-start | flex-end | center | baseline | stretch; */
                 align-items: ${align ? align : 'center'};
                 /* flex-direction: row | row-reverse | column | column-reverse; */
                 flex-direction: ${direction ? direction : 'row'};
-                /* border: 1px solid #ccc; */
+                ${borderTop ? `border-top: ${borderTop};` : ''}
+                ${borderBottom ? `border-bottom: ${borderBottom};` : ''}
+                ${borderRight ? `border-right: ${borderRight};` : ''}
             }
             
             * {
