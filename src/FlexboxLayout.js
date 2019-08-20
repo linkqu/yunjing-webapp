@@ -62,6 +62,10 @@ class FlexboxLayout extends HTMLElement {
         const width = this.getAttribute("width");
         const direction = this.getAttribute('direction');
         const align = this.getAttribute('align');
+        const itemPadding = this.getAttribute('item-padding');
+        const itemMargin = this.getAttribute('item-margin');
+        const firstItemPadding = this.getAttribute('first-item-padding');
+        const firstItemMargin = this.getAttribute('first-item-margin');
 
         shadowRoot.appendChild(style);
         style.textContent = `
@@ -72,15 +76,20 @@ class FlexboxLayout extends HTMLElement {
                 ${width ? `width: ${width};` : ''}
                 display: flex;
                 /* align-items: flex-start | flex-end | center | baseline | stretch; */
-                align-items: ${align? align : 'center'};
+                align-items: ${align ? align : 'center'};
                 /* flex-direction: row | row-reverse | column | column-reverse; */
-                flex-direction: ${direction? direction : 'row'};
+                flex-direction: ${direction ? direction : 'row'};
                 /* border: 1px solid #ccc; */
             }
             
             * {
-                /* padding: 0 0.5rem; */
+                ${itemPadding ? `padding: ${itemPadding};` : 'padding: 0;'}
+                ${itemMargin ? `margin: ${itemMargin};` : 'margin: 0;'}
                 text-align: center;
+            }
+            :first-child { 
+                ${firstItemPadding ? `padding: ${firstItemPadding};` : ''}
+                ${firstItemMargin ? `margin: ${firstItemMargin};` : ''}
             }`;
     }
 }
