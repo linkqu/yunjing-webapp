@@ -51,14 +51,22 @@
             --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
             --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
         }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
 <widget-flexbox-layout direction="column" align="flex-start">
+
     <widget-header>Header</widget-header>
+
     <widget-main>
         <widget-flexbox-layout align="flex-start">
-            <widget-sidebar width="10rem">Sidebar</widget-sidebar>
+            <widget-sidebar width="16rem">Sidebar</widget-sidebar>
+
             <widget-flexbox-layout width="100%" direction="column" align="flex-start">
                 <widget-flexbox-layout align="center">
                     <widget-button icon="user" icon-position="left">Test</widget-button>
@@ -68,11 +76,10 @@
                 </widget-flexbox-layout>
                 <widget-table></widget-table>
             </widget-flexbox-layout>
+
         </widget-flexbox-layout>
     </widget-main>
+
 </widget-flexbox-layout>
-
-
-
 </body>
 </html>

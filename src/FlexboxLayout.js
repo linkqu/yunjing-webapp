@@ -69,16 +69,17 @@ class FlexboxLayout extends HTMLElement {
             /* :host-context(h1) { font-style: italic; } */
             
             :host { 
-                    ${width ? `width: ${width};` : ''}
-                    display: flex;
-                    /* align-items: flex-start | flex-end | center | baseline | stretch; */
-                    align-items: ${align? align : 'center'};
+                ${width ? `width: ${width};` : ''}
+                display: flex;
+                /* align-items: flex-start | flex-end | center | baseline | stretch; */
+                align-items: ${align? align : 'center'};
                 /* flex-direction: row | row-reverse | column | column-reverse; */
                 flex-direction: ${direction? direction : 'row'};
+                /* border: 1px solid #ccc; */
             }
             
             * {
-                padding: 0 0.5rem;
+                /* padding: 0 0.5rem; */
                 text-align: center;
             }`;
     }
