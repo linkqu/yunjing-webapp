@@ -11,6 +11,9 @@
     <script src="Table.js" defer></script>
     <script src="Loader.js" defer></script>
     <script src="FlexboxLayout.js" defer></script>
+    <script src="Sidebar.js" defer></script>
+    <script src="Header.js" defer></script>
+    <script src="Main.js" defer></script>
 
     <style type="text/css">
         @font-face {
@@ -51,15 +54,25 @@
     </style>
 </head>
 <body>
-<widget-flexbox-layout>
-
-    <widget-button left-icon="" right-icon="user"></widget-button>
-    <widget-icon icon="home"></widget-icon>
-    <widget-checkbox label="Test"></widget-checkbox>
-    <widget-radio label="Test"></widget-radio>
+<widget-flexbox-layout direction="column" align="flex-start">
+    <widget-header>Header</widget-header>
+    <widget-main>
+        <widget-flexbox-layout align="flex-start">
+            <widget-sidebar width="10rem">Sidebar</widget-sidebar>
+            <widget-flexbox-layout width="100%" direction="column" align="flex-start">
+                <widget-flexbox-layout align="center">
+                    <widget-button icon="user" icon-position="left">Test</widget-button>
+                    <widget-icon icon="home"></widget-icon>
+                    <widget-checkbox label="Test"></widget-checkbox>
+                    <widget-radio label="Test"></widget-radio>
+                </widget-flexbox-layout>
+                <widget-table></widget-table>
+            </widget-flexbox-layout>
+        </widget-flexbox-layout>
+    </widget-main>
 </widget-flexbox-layout>
 
-<widget-table></widget-table>
+
 
 </body>
 </html>

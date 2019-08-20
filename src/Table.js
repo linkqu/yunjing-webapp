@@ -86,6 +86,7 @@ class Table extends HTMLElement {
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
             
+            :host { width: 100%; }
             table {
                 width: 100%;
                 background: #fff;

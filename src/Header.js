@@ -31,58 +31,30 @@
 
 
 /**
- * FlexboxLayout
+ * Header
  *
  * @author hongquanli <hongquanli@qq.com>
  * @version 1.0 2018-06-29 11:04
  */
-class FlexboxLayout extends HTMLElement {
+class Header extends HTMLElement {
 
     constructor() {
         super();
 
         const shadowRoot = this.attachShadow({mode: 'open'});
-
         const style = document.createElement('style');
-        // const button = document.createElement('button');
-        // button.textContent = this.textContent;
-        // button.textContent = this.getAttribute('data-text');
-        // shadowRoot.appendChild(button);
 
-        // // Could also use appendChild().
+        // Could also use appendChild().
         shadowRoot.innerHTML = this.innerHTML;
-        // shadowRoot.innerHTML = this.textContent;
-        // shadowRoot.innerHTML = `
-        //     <div class="box">
-        //        <div class="box-item"></div>
-        //     </div>`;
-        // header.shadowRoot === shadowRoot
-        // shadowRoot.host === header
-
-        const width = this.getAttribute("width");
-        const direction = this.getAttribute('direction');
-        const align = this.getAttribute('align');
 
         shadowRoot.appendChild(style);
         style.textContent = `
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
-            
-            :host { 
-                    ${width ? `width: ${width};` : ''}
-                    display: flex;
-                    /* align-items: flex-start | flex-end | center | baseline | stretch; */
-                    align-items: ${align? align : 'center'};
-                /* flex-direction: row | row-reverse | column | column-reverse; */
-                flex-direction: ${direction? direction : 'row'};
-            }
-            
-            * {
-                padding: 0 0.5rem;
-                text-align: center;
-            }`;
+            :host { width: 100%; }
+            `;
     }
 }
 
 // Define the new element
-window.customElements.define('widget-flexbox-layout', FlexboxLayout);
+window.customElements.define('widget-header', Header);

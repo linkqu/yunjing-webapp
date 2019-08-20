@@ -49,16 +49,16 @@ class Button extends HTMLElement {
         // button.textContent = this.getAttribute('data-text');
         // shadowRoot.appendChild(button);
 
-        const leftIcon = this.getAttribute("left-icon");
-        const rightIcon = this.getAttribute("right-icon");
+        const iconPosition = this.getAttribute("icon-position");
+        const icon = this.getAttribute("icon");
 
         // // Could also use appendChild().
         shadowRoot.innerHTML = `
             <button>
-                ${leftIcon? `<widget-icon icon="${leftIcon}"></widget-icon>`: ''}
+                ${iconPosition === 'left'? `<widget-icon icon="${icon}"></widget-icon>`: ''}
                 ${this.textContent}
                 <!--<widget-loader indicator-type="expander"></widget-loader>-->
-                ${rightIcon ? `<widget-icon icon="${rightIcon}"></widget-icon>`: ''}
+                ${iconPosition === 'right'? `<widget-icon icon="${icon}"></widget-icon>`: ''}
                 </button>`;
         // header.shadowRoot === shadowRoot
         // shadowRoot.host === header
