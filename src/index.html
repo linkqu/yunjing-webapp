@@ -11,10 +11,7 @@
     <script src="components/Table.js" defer></script>
     <script src="components/Loader.js" defer></script>
     <script src="components/FlexboxLayout.js" defer></script>
-    <script src="views/Sidebar.js" defer></script>
-    <script src="views/Header.js" defer></script>
-    <script src="views/Main.js" defer></script>
-
+    <script src="components/Input.js" defer></script>
     <style type="text/css">
         @font-face {
             font-family: 'Checkbox';
@@ -95,7 +92,7 @@
         </widget-flexbox-layout>
 
         <widget-flexbox-layout
-                width="calc(100% - 17rem)"
+                width="calc(100% - 17.04rem)"
                 item-padding="0 0.5rem 0.5rem"
                 direction="column"
                 align-items="flex-start">
@@ -114,6 +111,7 @@
                 <widget-icon icon="home"></widget-icon>
                 <widget-checkbox label="Test"></widget-checkbox>
                 <widget-radio label="Test"></widget-radio>
+                <widget-input type="text"></widget-input>
             </widget-flexbox-layout>
             <widget-table></widget-table>
         </widget-flexbox-layout>
