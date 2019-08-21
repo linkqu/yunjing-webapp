@@ -46,19 +46,20 @@ class Input extends HTMLElement {
 
         const type = this.getAttribute("type");
         const placeholder = this.getAttribute("placeholder");
+        const icon = this.getAttribute("icon");
 
         // Could also use appendChild().
         shadowRoot.innerHTML = `
         <input type="${type ? type : 'text'}" aria-describedby="" ${placeholder ? `placeholder="${placeholder}"` : ''}>
+        ${icon? `<widget-icon icon="${icon}"></widget-icon>` : ''}
         `;
 
         shadowRoot.appendChild(style);
         style.textContent = `
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
-            :host { width: 100%; }
+            :host { position: relative; }
             input {
-                display: block;
                 padding: .125rem .75rem;
                 font-size: 1rem;
                 font-weight: 400;
@@ -76,6 +77,12 @@ class Input extends HTMLElement {
                 border-color: #80bdff;
                 outline: 0;
                 box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+            }
+            
+            widget-icon {
+                position: absolute;
+                top: 0.1875rem;
+                right: 0.5rem;
             }`;
     }
 }
