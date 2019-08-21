@@ -52,6 +52,8 @@ class Button extends HTMLElement {
         const iconPosition = this.getAttribute("icon-position");
         const icon = this.getAttribute("icon");
 
+        const background = this.getAttribute("background");
+
         // // Could also use appendChild().
         shadowRoot.innerHTML = `
             <button>
@@ -75,7 +77,7 @@ class Button extends HTMLElement {
                 outline: 0;
                 border: 0.0625rem solid transparent;
                 vertical-align: baseline;
-                background: #e0e1e2 none;
+                ${background ? `background: ${background} none;` : 'background: #fff none;'}
                 color: rgba(0,0,0,.6);
                 font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
                 margin: 0;
@@ -96,9 +98,12 @@ class Button extends HTMLElement {
             }
             
             button:hover {
-                background-color: #cacbcd;
+                background-color: #ecf6fe;
                 box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(34,36,38,.15) inset;
-                color: rgba(0,0,0,.8)
+                color: rgba(0,0,0,.8);
+            }
+            button:active {
+                background-color: #d8eefd;
             }`;
     }
 }
