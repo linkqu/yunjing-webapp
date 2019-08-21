@@ -63,7 +63,7 @@ class FlexboxLayout extends HTMLElement {
         const width = this.getAttribute("width");
         const height = this.getAttribute("height");
         const direction = this.getAttribute('direction');
-        const align = this.getAttribute('align');
+        const alignItems = this.getAttribute('align-items');
         const borderTop = this.getAttribute('border-top');
         const borderBottom = this.getAttribute('border-bottom');
         const borderRight = this.getAttribute('border-right');
@@ -84,7 +84,7 @@ class FlexboxLayout extends HTMLElement {
                 ${height ? `height: ${height};` : ''}
                 display: flex;
                 /* align-items: flex-start | flex-end | center | baseline | stretch; */
-                align-items: ${align ? align : 'center'};
+                align-items: ${alignItems ? alignItems : 'center'};
                 /* flex-direction: row | row-reverse | column | column-reverse; */
                 flex-direction: ${direction ? direction : 'row'};
                 ${borderTop ? `border-top: ${borderTop};` : ''}
