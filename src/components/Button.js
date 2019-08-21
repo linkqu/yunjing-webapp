@@ -61,7 +61,7 @@ class Button extends HTMLElement {
                 ${this.textContent}
                 <!--<widget-loader indicator-type="expander"></widget-loader>-->
                 ${iconPosition === 'right'? `<widget-icon icon="${icon}"></widget-icon>`: ''}
-                </button>`;
+            </button>`;
         // header.shadowRoot === shadowRoot
         // shadowRoot.host === header
 
