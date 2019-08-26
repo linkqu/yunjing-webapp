@@ -107,7 +107,7 @@ class Loader extends HTMLElement {
                 display: inline-block;
             }
             .loading-indicator-spinner {
-                display: inline-block;
+                /* display: inline-block; */
                 animation: rotating .7s linear infinite;
                 width: 1rem;
                 height: 1rem;
