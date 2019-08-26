@@ -81,7 +81,7 @@ class Input extends HTMLElement {
             
             widget-icon {
                 position: absolute;
-                top: 0.1875rem;
+                top: 0.3125rem;
                 right: 0.5rem;
             }`;
     }
