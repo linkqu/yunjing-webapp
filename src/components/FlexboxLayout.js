@@ -79,7 +79,7 @@ class FlexboxLayout extends HTMLElement {
             /* :host { } */
             /* :host-context(h1) { font-style: italic; } */
             
-            :host { 
+            :host {
                 ${width ? `width: ${width};` : ''}
                 ${height ? `height: ${height};` : ''}
                 display: flex;
