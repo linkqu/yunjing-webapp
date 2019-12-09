@@ -97,7 +97,7 @@ class FlexboxLayout extends HTMLElement {
                 ${itemMargin ? `margin: ${itemMargin};` : 'margin: 0;'}
                 text-align: center;
             }
-            :first-child { 
+            :first-child {
                 ${firstItemPadding ? `padding: ${firstItemPadding};` : ''}
                 ${firstItemMargin ? `margin: ${firstItemMargin};` : ''}
             }`;
